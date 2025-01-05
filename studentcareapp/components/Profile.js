@@ -4,10 +4,22 @@ export default function Profile({ user }) {
     return (
         <View style={styles.container}>
             <View style={styles.banner}>
-                <Image
-                    style={styles.image}
-                    source={require('../assets/Logo.png')}
-                />
+            <Image style={styles.image} source={require("../assets/Logo.png")} />
+        </View>
+        <View style={styles.card}>
+            <Card  style={{backgroundColor:"#ffffff"}}>
+                <Card.Content>
+                    <View style={{ alignItems: "center" }}>
+                        <Avatar.Image size={150} source={user.profile_pic}/>
+                    </View>
+                    <Text variant="titleLarge" style={styles.nametext}>
+                        {user.name}
+                    </Text>
+                    <Text variant="bodyMedium" style={{textAlign:'center'}}>
+                        Age: {user.age} | Gender: {user.gender}
+                    </Text>
+                </Card.Content>
+            </Card>
             </View>
             <View style={styles.imageCard}>
                 <View>
