@@ -21,24 +21,14 @@ export default function Profile({ user }) {
                         <Text variant="bodyMedium" style={{textAlign:'center'}}>
                             Age: {user.age} | Gender: {user.gender}
                         </Text>
-                    </Card.Content>
-                </Card>
-            </View>
-            <View style={styles.card}>
-                <Card style={{backgroundColor:"#ffffff"}}>
-                    <Card.Content>
+                        <View style={styles.divider} />
                         <Text variant="titleLarge" style={styles.cardtitletext}>
                             Contact Information
                         </Text>
                         <Text variant="bodyMedium">Email: {user.email}</Text>
                         <Text variant="bodyMedium">Phone: {user.phone}</Text>
                         <Text variant="bodyMedium">Address: {user.address}</Text>
-                    </Card.Content>
-                </Card>
-            </View>
-            <View style={styles.card}>
-                <Card style={{backgroundColor:"#ffffff"}}>
-                    <Card.Content>
+                        <View style={styles.divider} />
                         <Text variant="titleLarge" style={styles.cardtitletext}>
                             Biological Information
                         </Text>
@@ -79,12 +69,17 @@ const styles = StyleSheet.create({
         marginVertical: 10,
         width: "90%",
         alignSelf: "center"
+    }, 
+    divider: {
+        height: 1,
+        backgroundColor: "#ccc",
+        marginVertical: 15
     },
     footer: {
         backgroundColor: "#520f4e",
         width: "100%",
         alignItems: "center",
-        height: 30,
+        height: 50,
         justifyContent: "center",
     },
     cardtitletext: {
