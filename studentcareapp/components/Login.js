@@ -1,13 +1,29 @@
 import { useNavigation } from "@react-navigation/native";
 import { Button, PaperProvider, Text, TextInput } from "react-native-paper";
 import { Image, StyleSheet, View } from "react-native";
+import { Alert, Image, StyleSheet, View } from "react-native";
+
 import { ScrollView } from "react-native";
 import { useState } from "react";
+import { students } from "../assets/StudentsDb";
 
 export default function Login() {
     const navigation = useNavigation();
     const [username,setUsername]=useState();
     const [password,setPassword]=useState();
+
+    const handleLogin = () => {
+        const user=students.find(
+            (student) => student.username === username && student.password===password
+        );
+        if(user) {
+            navigation.navigate('Main');
+        }
+        else{
+            Alert.alert('Error', 'Error Login');
+        }
+    }
+
     return (
         <ScrollView contentContainerStyle={styles.scrollView}>
             <View style={styles.container}>
