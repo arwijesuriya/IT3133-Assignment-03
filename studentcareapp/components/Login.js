@@ -1,12 +1,14 @@
 import { useNavigation } from "@react-navigation/native";
 import { Button, PaperProvider, Text } from "react-native-paper";
 import { StyleSheet, View } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 
 export default function Login() {
     const navigation = useNavigation();
     return (
         <PaperProvider>
             <View style={styles.container}>
+                <Image style={styles.image} source={require('../assets/Logo.png')}/>
                 <Text style={styles.text}>Student Login</Text>
                 <Button mode="contained"
                     onPress={() => navigation.navigate('Main')}
