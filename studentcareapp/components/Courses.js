@@ -1,6 +1,9 @@
 import { Image, StyleSheet, View, Text } from "react-native";
+import { courses } from "../assets/StudentsDb";
+import { Card } from "react-native-paper";
 
 export default function Courses({user}){
+    const userCourse=courses.find((course) => course.id === user.course_id);
     return(
         <View style={styles.container}>
             <View style={styles.banner}>
@@ -30,43 +33,58 @@ export default function Courses({user}){
                 </Card>
             </View>
             <View style={styles.footer}>
-                <Text style={styles.footerText}>UOV © 2025</Text>
+                <Text style={{color:"#ffffff"}}>UOV © 2025</Text>
             </View>
         </View>
     )
 }
-const styles =StyleSheet.create({
+
+const styles = StyleSheet.create({
+    scrollContent: {
+      flexGrow: 1,
+    },
     container: {
         flex: 1,
-        justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#fff",
+        paddingBottom: 30,
     },
-    banner:{
-        flex:1,
+    banner: {
         justifyContent: "center",
         alignItems: "center",
+        marginVertical: 10,
+    },
+    image: {
+        width: 250,
+        height: 65,
+    },
+    card: {
+        marginVertical: 10,
+        width: "90%",
+        alignSelf: "center"
     },  
-    image:{
-        flex:1,
-        width:250,
-        height:65,
-        top:10,
-        position:'absolute',
+    divider: {
+        height: 1,
+        backgroundColor: "#ccc",
+        marginVertical: 15,
     },
-    imageCard:{
-        flex:2
+    footer: {
+        position: "absolute",
+        bottom: 0,
+        backgroundColor: "#520f4e",
+        width: "100%",
+        alignItems: "center",
+        height: 50,
+        justifyContent: "center",
     },
-    footer:{
-        flex:1,
-        bottom:0,
-        position:"absolute",
-        backgroundColor:"#520f4e",
-        width:"100%",
-        alignItems:'center',
-        height:30
+    cardtitletext: {
+        fontSize: 28,
+        marginTop: 10,
+        textAlign: "left",
+    },    
+    nametext: {
+        fontSize: 28,
+        marginTop: 10,
+        textAlign: "center",
     },
-    footerText:{
-        color:'#ffffff'
-    }
 });
