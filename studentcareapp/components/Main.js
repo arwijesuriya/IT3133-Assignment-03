@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BottomNavigation, Text } from 'react-native-paper';
+import { BottomNavigation } from 'react-native-paper';
 
 import Profile from './Profile';
 import Courses from './Courses';
@@ -22,9 +22,10 @@ export default function Main({route}){
 
     return (
         <BottomNavigation
-        navigationState={{ index, routes }}
-        onIndexChange={setIndex}
-        renderScene={renderScene}
+            navigationState={{ index, routes }}
+            onIndexChange={setIndex}
+            renderScene={renderScene}
+            keyExtractor={(item) => item.key}
         />
     );
 };
