@@ -1,7 +1,25 @@
 import { Image, StyleSheet, View , Text} from "react-native";
 
+import { subjects } from "../assets/StudentsDb";
+import { courses } from "../assets/StudentsDb";
+import { marks } from "../assets/StudentsDb";
+import { Card } from "react-native-paper";
+
 export default function Subjects({user}){
-    return(
+    const userCourse=courses.find((course) => course.id === user.course_id);
+    const userSubjects=subjects.filter((subject)=>
+        marks.some((mark)=>mark.student_id===user.id && mark.subject_id===subject.id)
+    )
+    const userMarks=userSubjects.map((subject)=>{
+        const mark=marks.find(
+            (mark)=>mark.student_id === user.id && mark.subject_id === subject.id
+        );
+        return{
+            subjectName:subject.name,
+            mark:mark?.marks,
+        }
+    })
+    return (
         <View style={styles.container}>
             <View style={styles.banner}>
                 <Image
@@ -37,43 +55,72 @@ export default function Subjects({user}){
                 </Card>
             </View>
             <View style={styles.footer}>
-                <Text style={styles.footerText}>UOV © 2025</Text>
+                <Text style={{color:"#ffffff"}}>UOV © 2025</Text>
             </View>
         </View>
     )
 }
-const styles =StyleSheet.create({
+
+const styles = StyleSheet.create({
+    scrollContent: {
+        flexGrow: 1,
+    },
     container: {
         flex: 1,
-        justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#fff",
+        paddingBottom: 30,
     },
-    banner:{
-        flex:1,
+    banner: {
         justifyContent: "center",
         alignItems: "center",
+        marginVertical: 10,
+    },
+    image: {
+        width: 250,
+        height: 65,
+    },
+    card: {
+        marginVertical: 10,
+        width: "90%",
+        alignSelf: "center"
     },  
-    image:{
-        flex:1,
-        width:250,
-        height:65,
-        top:10,
-        position:'absolute',
+    row: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        marginVertical: 5,
     },
-    imageCard:{
-        flex:2
+    subject: {
+        fontSize: 16,
+        color: "#333",
     },
-    footer:{
-        flex:1,
-        bottom:0,
-        position:"absolute",
-        backgroundColor:"#520f4e",
-        width:"100%",
-        alignItems:'center',
-        height:30
+    mark: {
+        fontSize: 16,
+        fontWeight: "bold",
+        color: "#000",
     },
-    footerText:{
-        color:'#ffffff'
-    }
+    divider: {
+        height: 1,
+        backgroundColor: "#ccc",
+        marginVertical: 15,
+    },
+    footer: {
+        position: "absolute",
+        bottom: 0,
+        backgroundColor: "#520f4e",
+        width: "100%",
+        alignItems: "center",
+        height: 50,
+        justifyContent: "center",
+    },
+    cardtitletext: {
+        fontSize: 28,
+        marginTop: 10,
+        textAlign: "left",
+    },    
+    nametext: {
+        fontSize: 28,
+        marginTop: 10,
+        textAlign: "center",
+    },
 });
