@@ -1,26 +1,23 @@
 import * as React from 'react';
 import { BottomNavigation, Text } from 'react-native-paper';
 
-const MusicRoute = () => <Text>Music</Text>;
-const AlbumsRoute = () => <Text>Albums</Text>;
-const RecentsRoute = () => <Text>Recents</Text>;
-const NotificationsRoute = () => <Text>Notifications</Text>;
+import Profile from './Profile';
+import Courses from './Courses';
+import Subjects from './Subjects';
 
 export default function Main({route}){
-    console.log(route.params)
+    const {user}=route.params;
     const [index, setIndex] = React.useState(0);
     const [routes] = React.useState([
-        { key: 'music', title: 'Favorites', focusedIcon: 'heart', unfocusedIcon: 'heart-outline'},
-        { key: 'albums', title: 'Albums', focusedIcon: 'album' },
-        { key: 'recents', title: 'Recents', focusedIcon: 'history' },
-        { key: 'notifications', title: 'Notifications', focusedIcon: 'bell', unfocusedIcon: 'bell-outline' },
+        { key: 'profile', title: 'Profile', focusedIcon: 'account', unfocusedIcon: 'account-outline'},
+        { key: 'courses', title: 'Courses', focusedIcon: 'school' , unfocusedIcon: 'school-outline'},
+        { key: 'subjects', title: 'Subjects', focusedIcon: 'book-open' , unfocusedIcon: 'book-open-outline'},
     ]);
 
     const renderScene = BottomNavigation.SceneMap({
-        music: MusicRoute,
-        albums: AlbumsRoute,
-        recents: RecentsRoute,
-        notifications: NotificationsRoute,
+        profile:()=> <Profile user={user}/>,
+        courses:()=> <Courses user={user}/>,
+        subjects:()=> <Subjects user={user}/>,
     });
 
     return (
