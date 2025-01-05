@@ -17,7 +17,7 @@ export default function Login() {
             (student) => student.username === username && student.password===password
         );
         if(user) {
-            navigation.navigate('Main');
+            navigation.navigate('Main',{user});
         }
         else{
             Alert.alert('Error', 'Error Login');

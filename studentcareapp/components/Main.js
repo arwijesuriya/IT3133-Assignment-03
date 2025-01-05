@@ -6,7 +6,8 @@ const AlbumsRoute = () => <Text>Albums</Text>;
 const RecentsRoute = () => <Text>Recents</Text>;
 const NotificationsRoute = () => <Text>Notifications</Text>;
 
-export default function Main(){
+export default function Main({route}){
+    console.log(route.params)
     const [index, setIndex] = React.useState(0);
     const [routes] = React.useState([
         { key: 'music', title: 'Favorites', focusedIcon: 'heart', unfocusedIcon: 'heart-outline'},
