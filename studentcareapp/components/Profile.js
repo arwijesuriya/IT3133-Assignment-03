@@ -12,7 +12,11 @@ export default function Profile({user}){
             <View style={styles.imageCard}>
                 <Text>This is Profile Screen {user.name}</Text>
             </View>
+            <View style={styles.footer}>
+                <Text style={styles.footerText}>UOV © 2025</Text>
+            </View>
         </View>
+        
     )
 }
 const styles =StyleSheet.create({
@@ -36,5 +40,17 @@ const styles =StyleSheet.create({
     },
     imageCard:{
         flex:2
+    },
+    footer:{
+        flex:1,
+        bottom:0,
+        position:"absolute",
+        backgroundColor:"#520f4e",
+        width:"100%",
+        alignItems:'center',
+        height:30
+    },
+    footerText:{
+        color:'#ffffff'
     }
 });

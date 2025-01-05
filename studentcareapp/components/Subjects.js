@@ -1,5 +1,4 @@
-import { Image, StyleSheet, View } from "react-native";
-import { Text } from "react-native-paper";
+import { Image, StyleSheet, View , Text} from "react-native";
 
 export default function Subjects({user}){
     return(
@@ -11,6 +10,9 @@ export default function Subjects({user}){
             </View>
             <View style={styles.imageCard}>
                 <Text>This is Subjects Screen</Text>
+            </View>
+            <View style={styles.footer}>
+                <Text style={styles.footerText}>UOV © 2025</Text>
             </View>
         </View>
     )
@@ -36,5 +38,17 @@ const styles =StyleSheet.create({
     },
     imageCard:{
         flex:2
+    },
+    footer:{
+        flex:1,
+        bottom:0,
+        position:"absolute",
+        backgroundColor:"#520f4e",
+        width:"100%",
+        alignItems:'center',
+        height:30
+    },
+    footerText:{
+        color:'#ffffff'
     }
 });
