@@ -13,8 +13,8 @@ export default function App() {
       <SafeAreaProvider>
         <NavigationContainer>
           <Stack.Navigator initialRouteName='Login'>
-            <Stack.Screen name='Login' component={Login} options={{title:'UoV Student Care',headerStyle: { backgroundColor: '#520f4e' },headerTintColor: '#fff'}} />    
-            <Stack.Screen name='Main' component={Main} options={{title:'UoV Student Care',headerStyle: { backgroundColor: '#520f4e' },headerTintColor: '#fff'}}/>    
+            <Stack.Screen name='Login' component={Login} options={{title:'UoV Student Care',headerStyle: { backgroundColor: '#520f4e' },headerTintColor: '#fff', headerTitleAlign:'center'}} />    
+            <Stack.Screen name='Main' component={Main} options={{title:'UoV Student Care',headerStyle: { backgroundColor: '#520f4e' },headerTintColor: '#fff', headerTitleAlign:'center'}}/>    
           </Stack.Navigator>
         </NavigationContainer>
       </SafeAreaProvider>
